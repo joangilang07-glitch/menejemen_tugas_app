@@ -6,11 +6,15 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('wellcome');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
+
+Auth::routes();
 
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect('/');
+    return redirect('/login');
 })->name('logout');
