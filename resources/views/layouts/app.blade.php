@@ -229,7 +229,26 @@
  <script src="{{ asset('sbadmin2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/js/demo/datatables-demo.js') }}"></script>
+ <script src="{{ asset('swwealot2/dist/sweetalert2.all.min.js') }}"></script>
 
-</body>
+  @section('sucsess')
+    <script>
+        Swal.fire({
+  title: "SUKSES!",
+  text: "{{ session('success') }}",
+  icon: "success"
+});
+<script>
+        
+    @endsection
+     @section('eror')
+    <script>
+        Swal.fire({
+  title: "GAGAL!",
+  text: "{{ session('error') }}",
+  icon: "error"
+});
+<script>
+        
 
 </html>
